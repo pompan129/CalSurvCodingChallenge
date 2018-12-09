@@ -4,7 +4,7 @@ My submission for the CalSurv Coding Challenge.
 
 can query Database of IMDB information using the folowing routes:
 
-    you can program types by year:
+    you can query types by year:
      https://[baseURL]/:type/year/:startyear
      example: https://calsurv-coding-challenge.herokuapp.com/movie/year/1991
 
@@ -22,3 +22,15 @@ can query Database of IMDB information using the folowing routes:
 You can also add query string variables:
 
     example:  https://calsurv-coding-challenge.herokuapp.com/movies/genre/comedy?year=2006&sort=primarytitle&limit=100&offset=1000
+
+    possible variables are..
+    - limit : Fetch number instances/rows (limit=25)
+    - offset : Skip 8 instances/rows (offset=100)
+    - adult : screens for adult movies only (adult=true)
+    - type : same as type in params
+    - year : same as startyear in params (only in list by genre)
+    - sort : sort order of values (rating,year,genre,title)
+
+
+
+    Thanks for the opportunity!

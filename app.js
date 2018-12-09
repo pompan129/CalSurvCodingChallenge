@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 require('./server/routes')(app);
 // Setup a default catch-all route
 app.get('*', (req, res) => res.status(200).send({
-  message: 'Welcome to the beginning of UCD challenge',
+  message: `Welcome to the beginning of UCD challenge. You can query this server for IMDB information. View READ.me @ https://github.com/pompan129/CalSurvCodingChallenge`,
 }));
 
 module.exports = app;
