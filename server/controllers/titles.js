@@ -6,18 +6,54 @@ const Rating = require("../models").Rating;
 
 module.exports = {
   listByYear(req, res) {
-    return Title.findAll({
-      where: { startyear: req.params.startyear, titletype: req.params.type },
+    let { adult, title, sort, limit, offset } = req.query;
+    let params = {
+      startyear: req.params.startyear,
+      titletype: req.params.type
+    };
+
+    if (title) {
+      params.primarytitle = title;
+    }
+    if (adult) {
+      params.isadult = adult;
+    }
+
+    let config = {
+      where: params,
       include: [
         {
           model: Rating,
           as: "rating"
         }
       ]
-    })
+    };
+
+    if (sort) {
+      const order =
+        sort === "rating"
+          ? ["rating", "averagerating", "DESC NULLS LAST"]
+          : sort === "year"
+          ? ["startyear", "DESC"]
+          : sort === "genre"
+          ? ["genres", "ASC"]
+          : ["primarytitle", "ASC"];
+
+      config.order = [order];
+    }
+
+    if (limit) {
+      config.limit = limit;
+    }
+    if (offset) {
+      config.offset = offset;
+    }
+
+    return Title.findAll(config)
       .then(titles => res.status(200).json(titles)) //.reduce((a,title)=>({...a,[title.tconst]:title}),{})))
       .catch(error => res.status(400).send(error));
   },
+  
   listGenreBy(req, res) {
     let { year, adult, title, type, sort, limit, offset } = req.query;
     let genre = req.params.genre;
