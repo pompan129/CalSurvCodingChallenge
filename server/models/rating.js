@@ -18,5 +18,11 @@ module.exports = (sequelize, DataTypes) => {
     { tableName: "ratings", schema: "userland", timestamps: false }
   );
 
+  Rating.associate = (models) => {
+    Rating.belongsTo(models.Title, {
+      foreignKey: 'tconst',
+    });
+  };
+
   return Rating;
 };

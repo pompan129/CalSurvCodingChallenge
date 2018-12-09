@@ -36,5 +36,12 @@ module.exports = (sequelize, DataTypes) => {
     { tableName: "titles", schema: "userland", timestamps: false }
   );
 
+  Title.associate = (models) => {
+    Title.hasOne(models.Rating, {
+      foreignKey: 'tconst',
+      as: 'rating',
+    });
+  };
+
   return Title;
 };
