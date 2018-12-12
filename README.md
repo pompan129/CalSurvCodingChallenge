@@ -21,7 +21,7 @@ can query Database of IMDB information using the folowing routes:
 
 You can also add query string variables:
 
-    example:  https://calsurv-coding-challenge.herokuapp.com/movies/genre/comedy?year=2006&sort=primarytitle&limit=100&offset=1000
+    example:  https://calsurv-coding-challenge.herokuapp.com/movie/genre/comedy?year=2006&sort=primarytitle&limit=100&offset=1000
 
     possible variables are..
     - limit : Fetch number instances/rows (limit=25)
