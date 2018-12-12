@@ -15,7 +15,7 @@ can query Database of IMDB information using the folowing routes:
 
     you can program types by genre:
     https://[baseURL]/:type/genre/:genre' 
-    example: https://calsurv-coding-challenge.herokuapp.com/movies/genre/comedy
+    example: https://calsurv-coding-challenge.herokuapp.com/movie/genre/comedy
 
 `genre` would be one of the following: [Action,Adult,Adventure,Animation,Comedy,Crime,Documentary,Drama,Fantasy,History,Horror,Romance,Sci-Fi,Short,Sport,Thriller,War,Western,Biography,Family,Game-Show,Music,Musical,Mystery,News,Reality-TV,Talk-Show,Film-Noir]
 
